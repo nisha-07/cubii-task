@@ -1,0 +1,21 @@
+.container {
+    max-width: 360px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 3px 3px 5px 5px #33ebeb;
+    background: #fff;
+}
+
+p {
+    margin: 12px;
+}
+
+.dateRangePicker {
+    margin: 32px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 275px;
+    border: thin solid #33ebeb;
+}
