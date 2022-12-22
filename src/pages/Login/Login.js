@@ -2,19 +2,31 @@ import classes from "./Login.module.css";
 import { login } from "../../API/loginAPI";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { Audio } from "react-loader-spinner";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await login({ email, password });
-        const data = response.data?.data;
-        const { token, id } = data;
-        console.log(token, id, "!!!")
-        token && navigate(`/users/${id}`, { state: { token, id } })
+        setIsLoading(true)
+
+        try {
+            setError(null)
+            const response = await login({ email, password });
+            const data = response.data?.data;
+            setIsLoading(false)
+
+            const { token, id } = data;
+            token && navigate(`/users/${id}`, { state: { token, id } })
+        }
+        catch (error) {
+            setError(error?.response?.data?.message)
+            setIsLoading(false)
+        }
 
     }
 
@@ -39,7 +51,11 @@ const Login = () => {
                     value={password}
                 />
             </label>
-            <button className={classes.btn}>Login</button>
+            {isLoading ?
+                <div className="d-flex justify-content-center">
+                    <Audio height="18px" width="18px" color="#33ebeb" /></div> :
+                <button className={classes.btn}>Login</button>}
+            {error && <em>{error}</em>}
         </form>
     )
 }
