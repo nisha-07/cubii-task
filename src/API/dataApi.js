@@ -6,13 +6,13 @@ const axiosInstance = axios.create({
     paramsSerializer: { serialize: (params) => qs.stringify(params, { arrayFormat: 'repeat' }) },
 });
 
-export const getDetailpage = (userId, token, startDate, endDate) => {
+export const getDetailpage = (userId, token, startDate, endDate, range) => {
     return axiosInstance.get(`/users/${userId}/progress/activity_log/`, {
         params: {
             user_id: userId,
             start_date: startDate,
             end_date: endDate,
-            response_range: "monthly",
+            response_range: range,
         },
         headers: {
             Authorization: `Token ${token}`,
