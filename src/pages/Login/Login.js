@@ -23,7 +23,10 @@ const Login = () => {
             setIsLoading(false);
 
             const { token, id } = data;
-            token && navigate(`/users/${id}`, { state: { token, id } });
+
+            // store the token in the session storage
+            sessionStorage.setItem("token", token);
+            token && navigate(`/users/${id}`);
         } catch (error) {
             setError(error?.response?.data?.message);
             setIsLoading(false);
@@ -56,7 +59,9 @@ const Login = () => {
                     <Audio height="18px" width="18px" color="#33ebeb" />
                 </div>
             ) : (
-                <button className={classes.btn}>Login</button>
+                <button type="submit" className={classes.btn}>
+                    Login
+                </button>
             )}
             {error && <em>{error}</em>}
         </form>

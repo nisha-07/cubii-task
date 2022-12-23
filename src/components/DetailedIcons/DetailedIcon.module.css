@@ -1,0 +1,5 @@
+.detailedIcon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 24px 72px;
+}

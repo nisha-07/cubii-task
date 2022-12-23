@@ -1,0 +1,18 @@
+.icon {
+    padding: 4px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin: 8px;
+    cursor: pointer;
+}
+
+icon,
+img:hover {
+    transform: scale(1.2);
+}
+
+.icon,
+img {
+    height: 50px;
+    width: 50px;
+}

@@ -7,10 +7,6 @@
     background: #fff;
 }
 
-p {
-    margin: 12px;
-}
-
 .dateRangePicker {
     margin: 12px 32px 32px;
     font-size: 1rem;
@@ -34,14 +30,16 @@ p {
     color: black;
     background-color: var(--primary-color);
 }
+
 .chart {
     display: flex;
     justify-content: center;
+    margin: 72px;
 }
 
 .dropDown {
     display: inline-block;
-    margin: 12px 8px ;
+    margin: 12px 8px;
     padding: 6px;
     font-size: 1rem;
     border: 2px solid #33ebeb;
@@ -51,4 +49,23 @@ p {
 
 .error {
     color: red;
+}
+
+.headingOfDetail {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 36px 24px;
+}
+
+.detailedContainer {
+    margin: 12px auto;
+    max-width: 1200px;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 6px;
+}
+
+.detailedContainer em {
+    margin-top: 24px;
+    color: gray;
 }
