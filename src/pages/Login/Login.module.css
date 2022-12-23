@@ -21,3 +21,10 @@
     color: black;
     background-color: var(--primary-color);
 }
+
+.login em {
+    display: flex;
+    justify-content: center;
+    color: red;
+    margin: 8px;
+}
