@@ -1,7 +1,8 @@
 export const dateFormater = (value) => {
-    const event = new Date(value);
-    let date = JSON.stringify(event);
-    date = date.slice(1, 11);
+    const dateObj = new Date(value);
+    const date = dateObj.getDate();
+    const month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
 
-    return date;
+    return `${year}-${month}-${date}`;
 };
